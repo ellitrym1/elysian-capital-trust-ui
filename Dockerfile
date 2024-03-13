@@ -14,4 +14,8 @@ FROM nginx:stable-alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
+
+EXPOSE 80
+
+CMD ["sh", "-c", "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/default.conf && nginx -g 'daemon off;'"]

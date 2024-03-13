@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: sunshine-daisy-bank-ui-deployment
-    namespace: sunshine-daisy-bank
+    name: sdb-ui-deployment
+    namespace: sdb
 spec:
     replicas: 1
     selector:
@@ -14,7 +14,8 @@ spec:
                 app: frontend
         spec:
             containers:
-                - name: sunshine-daisy-bank-ui-container
-                  image: sunshine-daisy-bank-ui:latest
+                - name: sdb-ui-container
+                  image: sdb-ui:latest
+                  imagePullPolicy: Never
                   ports:
-                      - containerPort: 3000
+                      - containerPort: 80
