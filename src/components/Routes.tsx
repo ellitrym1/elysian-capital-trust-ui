@@ -8,6 +8,7 @@ import Transactions from "@/pages/Transactions";
 import Settings from "@/pages/Settings";
 import Pay from "@/pages/Pay";
 import BottomNavigationBar from "./BottomNavigationBar";
+import Wallets from "@/pages/Wallets";
 
 const Routes = () => {
     return (
@@ -17,6 +18,7 @@ const Routes = () => {
                 <Route path="/transactions" element={<Transactions />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/pay" element={<Pay />} />
+                <Route path="/wallets" element={<Wallets />} />
             </ReactRoutes>
             <BottomNavigationBar />
         </Router>
