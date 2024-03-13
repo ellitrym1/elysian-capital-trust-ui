@@ -12,6 +12,11 @@ export default function BottomNavigationBar() {
 
     return (
         <BottomNavigation
+            sx={{
+                position: "fixed",
+                bottom: 0,
+                width: "100%",
+            }}
             value={value}
             onChange={(event, newValue) => setValue(newValue)}
             showLabels
