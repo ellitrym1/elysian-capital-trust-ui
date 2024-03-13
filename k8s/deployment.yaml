@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: sunshine-daisy-bank-ui-deployment
+    namespace: sunshine-daisy-bank
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: frontend
+    template:
+        metadata:
+            labels:
+                app: frontend
+        spec:
+            containers:
+                - name: sunshine-daisy-bank-ui-container
+                  image: sunshine-daisy-bank-ui:latest
+                  ports:
+                      - containerPort: 3000
