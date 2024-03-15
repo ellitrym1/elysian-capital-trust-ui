@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: sdb-ui-deployment
-    namespace: sdb
+    name: ect-ui-deployment
+    namespace: ect
 spec:
     replicas: 1
     selector:
@@ -14,8 +14,8 @@ spec:
                 app: frontend
         spec:
             containers:
-                - name: sdb-ui-container
-                  image: sdb-ui:latest
+                - name: ect-ui-container
+                  image: ect-ui:latest
                   imagePullPolicy: Never
                   ports:
                       - containerPort: 80
