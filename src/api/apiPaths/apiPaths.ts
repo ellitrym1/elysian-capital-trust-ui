@@ -1,4 +1,7 @@
 export const API_PATHS = {
     get: {},
-    post: {},
+    post: {
+        login: "/accounts/login",
+        register: "/register",
+    },
 };
