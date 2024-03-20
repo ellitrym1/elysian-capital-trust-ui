@@ -39,9 +39,13 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
 
     const login = async ({ registrationNumber, pinCode }: ILogin) => {
         try {
-            const token = await loginUser({ registrationNumber, pinCode });
-            sessionStorage.setItem("token", token);
-            setLoggedIn(true);
+            const data = await loginUser({ registrationNumber, pinCode });
+            if (data.token) {
+                sessionStorage.setItem("token", data.token);
+                setLoggedIn(true);
+            } else {
+                throw new Error("No token found in response data");
+            }
         } catch (error) {
             console.error("Login failed:", error);
             throw error;

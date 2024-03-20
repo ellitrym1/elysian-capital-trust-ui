@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+## Running Your App with HTTPS and HTTP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run your app locally with either HTTPS or HTTP
 
-Currently, two official plugins are available:
+### 1. Generate SSL/TLS Certificates
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create a folder called certs in the root directory
 
-## Expanding the ESLint configuration
+```bash
+openssl req -newkey rsa:2048 -x509 -nodes -keyout certs/key.pem -out certs/cert.pem -days 365
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2. Running using http-server
+
+npm install -g http-server (if not already done)
+
+```bash
+http-server dist -S -C certs/cert.pem -K certs/key.pem -o
+```

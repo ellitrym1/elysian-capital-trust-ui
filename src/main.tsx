@@ -7,6 +7,19 @@ import "./i18n/i18n";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { UserContextProvider } from "./contexts/UserContext";
 
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((registration) => {
+                console.log("Service Worker registered:", registration);
+            })
+            .catch((error) => {
+                console.error("Service Worker registration failed:", error);
+            });
+    });
+}
+
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

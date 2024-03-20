@@ -1,0 +1,21 @@
+{
+    "name": "Elysian Capital Trust",
+    "short_name": "ECT",
+    "icons": [
+        {
+            "src": "/ect-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/ect-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
+}
